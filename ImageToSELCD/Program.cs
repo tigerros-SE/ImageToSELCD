@@ -12,10 +12,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using ImageToSELCD.Extensions;
 using ImageToSELCD.Dithering;
-using MediaToolkit;
-using MediaToolkit.Model;
-using MediaToolkit.Util;
-using MediaToolkit.Options;
 
 namespace ImageToSELCD {
 	public static class Program {
@@ -30,29 +26,6 @@ namespace ImageToSELCD {
 				bool ratioBool = Console.ReadLine().ToUpper() == "Y";
 				int ratioX = size[0];
 				int ratioY = size[1];
-				//C: \Users\glaci\Downloads\bigkrtkusdiscordicon.png
-
-				//var directoryPath = Path.ChangeExtension(path, null);
-				//Directory.CreateDirectory(directoryPath);
-
-				//using (var engine = new Engine()) {
-				//	var outputFile = new MediaFile();
-				//	var options = new ConversionOptions();
-				//	var video = new MediaFile(path);
-
-				//	engine.GetMetadata(video);
-
-				//	Console.WriteLine(video.Metadata.VideoData.Fps);
-
-				//	int milliseconds = video.Metadata.Duration.Minutes * 6000 + video.Metadata.Duration.Seconds * 1000 + video.Metadata.Duration.Milliseconds;
-
-				//	for (int i = 0; i <= milliseconds; i += (int)video.Metadata.VideoData.Fps * 3) {
-				//		options.Seek = TimeSpan.FromMilliseconds(i);
-				//		outputFile.Filename = $@"{directoryPath}\frame_{i / (video.Metadata.VideoData.Fps * 3)}.jpeg";
-				//		engine.GetThumbnail(video, outputFile, options);
-				//		Console.WriteLine($"Frame #{i / (video.Metadata.VideoData.Fps * 3)}/{(int)(milliseconds / (video.Metadata.VideoData.Fps * 3))}");
-				//	}
-				//}
 
 				Image image = Image.FromFile(path);
 				Bitmap bm = new Bitmap(image).Resize(ratioX * 178, ratioY * 178, ratioBool);
