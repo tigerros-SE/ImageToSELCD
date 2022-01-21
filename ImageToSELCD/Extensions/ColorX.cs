@@ -24,9 +24,9 @@ namespace ImageToSELCD.Extensions {
 			}
 			
 			return Color.FromArgb(
-				round((factor - 1) * (color.R / 255)),
-				round((factor - 1) * (color.G / 255)),
-				round((factor - 1) * (color.B / 255))
+				round((factor - 1) * color.R / 255) * 255 / factor,
+				round((factor - 1) * color.G / 255) * 255 / factor,
+				round((factor - 1) * color.B / 255) * 255 / factor
 			);
 		}
 	}

@@ -29,7 +29,10 @@ namespace ImageToSELCD {
 
 				Image image = Image.FromFile(path);
 				Bitmap bm = new Bitmap(image).Resize(ratioX * 178, ratioY * 178, ratioBool);
-				var pixels = bm.GetPixels();//newBm.SetPixels(pixel => { pixel.Color = pixel.Color.Quantize(3); return pixel; });
+				var pixels = bm.SetPixels(p => {
+					p.Color = p.Color.Quantize(2);
+					return p;
+				});
 				string converted = "";
 
 				for (int i = 0; i < pixels.Length; i++) {
