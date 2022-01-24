@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace ImageToSELCD.Extensions {
 	public static class ImageX {
@@ -13,14 +6,14 @@ namespace ImageToSELCD.Extensions {
 		/// Gets the colors of all pixels in this image.
 		/// </summary>
 		/// <returns>A 2D <see cref="Color"/> array. The first dimension is the width, and the second is the height.</returns>
-		public static Pixel[,] GetPixels2D(this Image image)
+		public static Color[,] GetPixels2D(this Image image)
 			=> new Bitmap(image).GetPixels2D();
 
 		/// <summary>
 		/// Gets the colors of all pixels in this image.
 		/// </summary>
 		/// <returns>A <see cref="Color"/> array that contains all the pixels. Starts from the top left corner, then every row from left to right.</returns>
-		public static Pixel[] GetPixels(this Image image)
+		public static Color[] GetPixels(this Image image)
 			=> new Bitmap(image).GetPixels();
 
 		/// <summary>
