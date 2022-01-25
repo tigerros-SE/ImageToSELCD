@@ -51,19 +51,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TiDithering">
+      <HintPath>..\..\..\TiDithering\TiDithering\bin\Debug\TiDithering.dll</HintPath>
+    </Reference>
+    <Reference Include="TiExtensions">
+      <HintPath>..\..\..\TiExtensions\TiExtensions\bin\Debug\TiExtensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dithering\ErrorDiffusion\FloydSteinberg.cs" />
-    <Compile Include="Dithering\ErrorDiffusion\DiffusionPattern.cs" />
-    <Compile Include="Dithering\ErrorDiffusion\ErrorDiffusionBase.cs" />
-    <Compile Include="Extensions\BitmapX\GetPixelsX.cs" />
-    <Compile Include="Extensions\BitmapX\SetPixelsX.cs" />
-    <Compile Include="Extensions\MathX.cs" />
-    <Compile Include="Extensions\DoubleX.cs" />
-    <Compile Include="Extensions\ImageX.cs" />
-    <Compile Include="Extensions\ColorX.cs" />
-    <Compile Include="Extensions\BitmapX\BitmapX.cs" />
-    <Compile Include="Dithering\ErrorDiffusion\IErrorDiffusion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

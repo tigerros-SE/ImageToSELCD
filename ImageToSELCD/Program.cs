@@ -1,15 +1,23 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using ImageToSELCD.Extensions;
-using ImageToSELCD.Dithering;
+using TiExtensions.BitmapN;
+using TiDithering.ErrorDiffusion;
 using System.Text;
+using TiExtensions.MathN;
 
 namespace ImageToSELCD {
 	public static class Program {
+		const double BIT_SPACING = 255.0 / 7.0;
+
+		public static char ToSEChar(this Color c) => ColorToSEChar(c.R, c.G, c.B);
+		public static char ColorToSEChar(byte r, byte g, byte b)
+			=> (char)(0xe100 +
+			((r / BIT_SPACING).Round() << 6) +
+			((g / BIT_SPACING).Round() << 3) +
+			(b / BIT_SPACING).Round());
+
 		public static string BitmapToSEString(Bitmap bm) {
 			var converted = new StringBuilder();
 			var pixels = bm.GetPixels2D();
@@ -47,8 +55,7 @@ namespace ImageToSELCD {
 
 				int factor = Prompt("Enter the quantize factor: ", int.Parse);
 
-				Image image = Image.FromFile(path);
-				Bitmap bm = new Bitmap(image).Resize(ratioX * 178, ratioY * 178, ratioBool);
+				Bitmap bm = Bitmap.FromFile(path).Resize(ratioX * 178, ratioY * 178, ratioBool);
 
 				var fs = new FloydSteinberg(bm, factor);
 				fs.Diffuse();
